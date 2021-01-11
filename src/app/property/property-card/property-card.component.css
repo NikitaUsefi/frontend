@@ -1,3 +1,12 @@
+.card-body h1{
+  font-size: 1.7em;
+}
+.card-body h2{
+  font-size: 1.5em;
+}
+.card-body h3{
+  font-size: 1.5em;
+}
 .card-img-wrapper{
   overflow: hidden;
   position: relative;
