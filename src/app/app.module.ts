@@ -15,6 +15,7 @@ import { PropertyDetailComponent } from './property/property-detail/property-det
 import { PageNotFoundComponent } from './Page-Not-Found/Page-Not-Found.component';
 import { UserLoginComponent } from './user/user-login/user-login.component';
 import { UserRegisterComponent } from './user/user-register/user-register.component';
+import { UserService } from './services/user.service';
 
 const appRoutes: Routes = [
   { path: '', component: PropertyListComponent },
@@ -44,7 +45,7 @@ const appRoutes: Routes = [
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [HousingService],
+  providers: [HousingService,UserService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
