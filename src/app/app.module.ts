@@ -17,6 +17,9 @@ import { UserLoginComponent } from './user/user-login/user-login.component';
 import { UserRegisterComponent } from './user/user-register/user-register.component';
 import { UserService } from './services/user.service';
 import { AlertifyService } from './services/alertify.service';
+import { AuthService } from './services/auth.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 
 const appRoutes: Routes = [
   { path: '', component: PropertyListComponent },
@@ -37,7 +40,7 @@ const appRoutes: Routes = [
     NavBarComponent,
     PageNotFoundComponent,
     UserLoginComponent,
-    UserRegisterComponent,
+    UserRegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -45,8 +48,10 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     FormsModule,
     ReactiveFormsModule,
+    BrowserAnimationsModule,
+    BsDropdownModule.forRoot()
   ],
-  providers: [HousingService, UserService, AlertifyService],
+  providers: [HousingService, UserService, AlertifyService,AuthService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
