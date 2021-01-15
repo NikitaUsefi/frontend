@@ -3,12 +3,18 @@
 }
 .card-body h1{
   font-size: 1.7em;
+  font-family: fantasy;
+  color:#0069d9;
 }
 .card-body h2{
   font-size: 1.5em;
 }
 .card-body h3{
   font-size: 1.5em;
+}
+.font-hightlight{
+  font-style:italic;
+  color:red;
 }
 .card-img-wrapper{
   overflow: hidden;
