@@ -2,7 +2,8 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { TabsetComponent } from 'ngx-bootstrap/tabs';
-import { IProperty } from '../IProperty.interface';
+import { IPropertyBase } from 'src/app/model/ipropertybase';
+
 
 @Component({
   selector: 'app-add-property',
@@ -18,12 +19,18 @@ export class AddPropertyComponent implements OnInit {
   gatedCommunities:Array<string>=['Yes','No']
   MainEnterances:Array<string>=['East','West','South','Noth']
 
-  propertyView:IProperty={
+  propertyView:IPropertyBase={
     Id:null,
     Name:'',
     Price:null,
     SellRent:null,
-    Type:null
+    PType:null,
+    FType:null,
+    BHK:null,
+    BuiltArea:null,
+    City:null,
+    RTM:null
+
   };
 
   constructor(private router:Router) { }
