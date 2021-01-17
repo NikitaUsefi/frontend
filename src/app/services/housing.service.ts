@@ -11,10 +11,13 @@ export class HousingService {
   constructor(private http: HttpClient) {}
   getProperty(id: number) {
     return this.getAllProperties().pipe(
-      map(propertiesArray=>{
-        return propertiesArray.find(p=>p.Id===id);
+      map((propertiesArray) => {
+        return propertiesArray.find((p) => p.Id === id);
       })
     );
+  }
+  getAllCities(): Observable<string[]> {
+    return this.http.get<string[]>('http://localhost:4315/api/city');
   }
   getAllProperties(SellRent?: number): Observable<Property[]> {
     return this.http.get('data/properties.json').pipe(
@@ -26,27 +29,24 @@ export class HousingService {
           for (const id in localProperties) {
             //if we want to filter our properties by sellRent
 
-            if(SellRent){
+            if (SellRent) {
               if (
                 localProperties.hasOwnProperty(id) &&
                 localProperties[id].SellRent === SellRent
               )
                 propertiesArray.push(localProperties[id]);
             }
-              //if we want all the data
+            //if we want all the data
             else propertiesArray.push(localProperties[id]);
           }
         }
         for (const id in data) {
           //if we want to filter our properties by sellRent
-         if(SellRent){
-          if (
-            data.hasOwnProperty(id) &&
-            data[id].SellRent === SellRent
-          )
-            propertiesArray.push(data[id]);
-         }
-             //if we want all the data
+          if (SellRent) {
+            if (data.hasOwnProperty(id) && data[id].SellRent === SellRent)
+              propertiesArray.push(data[id]);
+          }
+          //if we want all the data
           else propertiesArray.push(data[id]);
         }
         return propertiesArray;
